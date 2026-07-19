@@ -1,0 +1,26 @@
+# PRE-REGISTERED SPECIFICATION GRID
+# ---------------------------------
+# Commit this file BEFORE running any evaluation. The commit hash is the
+# pre-registration. Every cell in this grid gets evaluated and reported;
+# Benjamini-Hochberg (q = 0.10) is applied across ALL resulting p-values.
+# Adding a spec after seeing results = new file, new registration,
+# clearly labeled exploratory.
+
+signals:
+  - accel_z              # velocity acceleration z-score, threshold >= 2
+  - burst_surprise       # Poisson surprise >= 3
+  - first_in_class       # requires days_since_first_filing >= 365
+  - conf_intensity_jump  # trailing conf share rises >= 0.25 vs prior window
+
+event_windows_trading_days: [5, 20, 60]
+entry_lags_trading_days: [1, 2, 3, 5]     # t+2 is headline; others are sensitivity
+holding_days_calendar_time: [20, 60]
+universes:
+  - smallmid_hardware    # the registered universe (see universe/membership.py)
+evaluation:
+  estimation_window: [-141, -21]
+  min_estimation_obs: 90
+  calendar_time_min_names: 3
+  newey_west_lags: 5
+  fdr_q: 0.10
+  placebo_draws: 200

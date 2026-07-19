@@ -1,0 +1,7 @@
+raw_zone_root: data/raw
+feature_store_root: data/features
+storage_format: parquet
+schedules:
+  fcc_daily_pull: "0 7 * * *"     # 07:00 UTC daily
+  edgar_weekly: "0 8 * * 1"
+edgar_user_agent: "FCC-Signal Research your-email@usc.edu"

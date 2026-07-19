@@ -1,0 +1,10 @@
+# Manual crosswalk overrides. Highest precedence; confidence 1.0; a
+# note is REQUIRED (future-you will not remember why).
+# Ticker "" = known unmapped (private co / contract manufacturer).
+#
+# - grantee_code: "2ABCD"
+#   ticker: "XYZ"
+#   valid_from: "2015-01-01"
+#   valid_to: null
+#   note: "Subsidiary Foo Electronics per XYZ 10-K Ex-21 (2015)"
+overrides: []
